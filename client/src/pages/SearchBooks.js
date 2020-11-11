@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Container from '@material-ui/core/Container';
 import SearchForm from '../components/SearchForm';
-// import SearchResults from '../../components/SearchResults';
+import SearchResults from '../components/SearchResults';
 import API from "../utils/API";
+import parseBooks from "../utils/parseBooks";
 
 export default function SearchBooks() {
 
@@ -18,9 +19,11 @@ export default function SearchBooks() {
     // Searches Google books and sets the response to bookResults
     function searchBooks() {
         API.searchGoogleBooks(searchTerm)
-            .then(res =>
-                setBookResults(res.data)
-            )
+            .then(res => {
+
+                console.log(res.data.items)
+                setBookResults(parseBooks(res.data.items))
+            })
             .catch(err => console.log(err));
     };
 
@@ -42,8 +45,9 @@ export default function SearchBooks() {
             <Container>
                 <div>
                     <SearchForm handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
-                    {/* <SearchResults /> */}
+                    <SearchResults bookResults={bookResults} />
                 </div>
+
             </Container>
         </section>
     )

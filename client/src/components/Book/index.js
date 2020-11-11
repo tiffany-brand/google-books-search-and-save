@@ -25,7 +25,8 @@ export default function Book(props) {
 
     const classes = useStyles();
 
-    const { title, authors, description, image, link } = props.bookInfo;
+    const { id, _id, title, authors, description, image, link } = props.bookInfo;
+    console.log(props.bookInfo);
 
     return (
         <Container className={classes.root}>
@@ -47,7 +48,9 @@ export default function Book(props) {
                         {description}
                     </Typography>
                     <Button className={classes.buttons} href={link} target="_blank" variant="contained" color="primary">View</Button>
-                    {props.page === "search" ? <Button className={classes.buttons} variant="contained" color="default">Save</Button> : <Button className={classes.buttons} variant="contained" color="secondary">Delete</Button>}
+                    {props.page === "search" ?
+                        <Button className={classes.buttons} variant="contained" color="default" onClick={() => props.saveBook(props.bookInfo)}>Save</Button> :
+                        <Button className={classes.buttons} variant="contained" color="secondary" onClick={() => props.deleteBook(_id)}>Delete</Button>}
 
                 </Grid>
             </Grid>

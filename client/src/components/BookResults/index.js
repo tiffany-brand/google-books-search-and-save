@@ -20,12 +20,12 @@ const useStyles = makeStyles((theme) =>
 
 export default function SearchResults(props) {
 
-    const { bookResults } = props;
+    const { bookResults, saveBook, deleteBook, page } = props;
 
     return (
         <div>
             {bookResults.map(book => {
-                return <Book key={book.id} bookInfo={book} page="search" />
+                return <Book key={book.id || book._id} bookInfo={book} page={page} saveBook={saveBook} deleteBook={deleteBook} />
             })}
         </div>
 

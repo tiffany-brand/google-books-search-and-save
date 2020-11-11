@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Container from '@material-ui/core/Container';
 import SearchForm from '../components/SearchForm';
-import SearchResults from '../components/SearchResults';
+import BookResults from '../components/BookResults';
 import API from "../utils/API";
 import parseBooks from "../utils/parseBooks";
 
@@ -27,6 +27,13 @@ export default function Search() {
             .catch(err => console.log(err));
     };
 
+    // Saved a book to the database
+    function saveBook(book) {
+        API.saveBook(book)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
+
     // Handles updating component state when the user types into the input field
     const handleInputChange = event => {
         setSearchTerm(event.target.value);
@@ -45,7 +52,7 @@ export default function Search() {
             <Container>
                 <div>
                     <SearchForm handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
-                    <SearchResults bookResults={bookResults} />
+                    <BookResults bookResults={bookResults} saveBook={saveBook} page="search" />
                 </div>
 
             </Container>

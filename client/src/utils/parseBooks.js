@@ -1,5 +1,6 @@
 export default function parseBooks(searchResults) {
     let parsedBook = {
+        id: "",
         title: "",
         authors: [],
         description: "",
@@ -9,6 +10,7 @@ export default function parseBooks(searchResults) {
 
     return searchResults.map(book => {
         parsedBook = {
+            id: book.id,
             title: book.volumeInfo.title,
             authors: book.volumeInfo.authors,
             description: book.volumeInfo.description,

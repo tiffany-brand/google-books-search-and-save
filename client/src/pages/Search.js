@@ -5,7 +5,7 @@ import SearchResults from '../components/SearchResults';
 import API from "../utils/API";
 import parseBooks from "../utils/parseBooks";
 
-export default function SearchBooks() {
+export default function Search() {
 
     const [bookResults, setBookResults] = useState([]);
     const [searchTerm, setSearchTerm] = useState("Apple");

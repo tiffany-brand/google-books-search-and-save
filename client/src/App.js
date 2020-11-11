@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import SearchBooks from "./pages/SearchBooks";
+import Search from "./pages/Search";
 import "./App.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Nav />
       <Hero />
-      <SearchBooks />
+      <Search />
     </div>
   );
 }

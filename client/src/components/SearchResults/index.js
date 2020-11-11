@@ -3,6 +3,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import Book from '../Book';
 
 
 const useStyles = makeStyles((theme) =>
@@ -24,7 +25,7 @@ export default function SearchResults(props) {
     return (
         <div>
             {bookResults.map(book => {
-                return <p>{book.title}</p>
+                return <Book key={book.id} bookInfo={book} page="search" />
             })}
         </div>
 

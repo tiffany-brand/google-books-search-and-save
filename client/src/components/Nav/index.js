@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -38,8 +39,8 @@ export default function Header() {
                     <Typography variant="h6" className={classes.title}>
                         Google Books
                     </Typography>
-                    <Button className={classes.links}>Search</Button>
-                    <Button className={classes.links}>Save</Button>
+                    <Link to='/'><Button className={classes.links}>Search</Button></Link>
+                    <Link to='/saved'><Button className={classes.links}>Saved Books</Button></Link>
                 </Toolbar>
             </AppBar>
         </header>

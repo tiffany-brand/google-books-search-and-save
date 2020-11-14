@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) =>
 
         links: {
             color: "#fff"
-        }
+        },
+        offset: theme.mixins.toolbar,
 
     })
 );
@@ -34,7 +35,7 @@ export default function Header() {
 
     return (
         <header className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="fixed">
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>
                         Google Books
@@ -43,6 +44,7 @@ export default function Header() {
                     <Link to='/saved'><Button className={classes.links}>Saved Books</Button></Link>
                 </Toolbar>
             </AppBar>
+            <div className={classes.offset} />
         </header>
 
     )

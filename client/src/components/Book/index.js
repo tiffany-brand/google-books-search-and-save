@@ -9,9 +9,11 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) =>
     createStyles({
         root: {
-            margin: "20px",
-            border: "1px solid gray",
-            padding: "20px"
+            border: "1px solid #cfe1f7",
+            marginBottom: "20px"
+        },
+        book: {
+            padding: "40px 0 40px 0",
 
 
         },
@@ -29,14 +31,14 @@ export default function Book(props) {
     console.log(props.bookInfo);
 
     return (
-        <Container className={classes.root}>
-            <Grid container spacing={2}>
+        <Container className={classes.root} >
+            <Grid className={classes.book} container spacing={2}>
                 <Grid item xs={12}>
                     <Typography gutterBottom variant="h5" component="h2">
                         {title}
                     </Typography>
                     <Typography variant="body2" color="textPrimary" component="p" paragraph>
-                        {authors.join(", ")}
+                        {authors && authors.join(", ")}
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={3}>

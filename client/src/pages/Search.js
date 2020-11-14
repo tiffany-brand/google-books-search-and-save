@@ -11,9 +11,9 @@ export default function Search() {
     const [searchTerm, setSearchTerm] = useState("Apple");
 
     // Load all books and store them with setBooks
-    useEffect(() => {
-        searchBooks()
-    }, [])
+    // useEffect(() => {
+    //     searchBooks()
+    // }, [])
 
 
     // Searches Google books and sets the response to bookResults
@@ -48,15 +48,12 @@ export default function Search() {
 
 
     return (
-        <section>
-            <Container>
-                <div>
-                    <SearchForm handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
-                    <BookResults bookResults={bookResults} saveBook={saveBook} page="search" />
-                </div>
 
-            </Container>
-        </section>
+        <Container>
+            <SearchForm handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
+            <BookResults bookResults={bookResults} saveBook={saveBook} page="search" />
+        </Container>
+
     )
 
 }

@@ -1,29 +1,75 @@
-# Create React Express App
+# React Google Books Search and Save
 
-## About This Boilerplate
+[![License: MIT](https://img.shields.io/github/license/tiffany-brand/google-books-search-and-save?style=plastic)](./LICENSE)
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Table of Contents
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+* [Description](#description)
+* [Deployed Link](#deployed-link)
+* [Screenshots](#screenshots)
+* [Technologies](#technologies)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Questions](#questions)
 
-## Starting the app locally
+## Description
+This application allows a user to search Google Books through the Google Books API. Search results are rendered in a list of books containing the title, author(s), a description, and book cover image. Users can view a book or save a book. The saved books page renders books that have been saved to the database. Saved books can be viewed or deleted from the list.
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+### User Story
 
-```
-npm install
-```
+AS An avid reader
 
-This should install node modules within the server and the client folder.
+I WANT to be able to search for and save books
 
-After both installations complete, run the following command in your terminal:
+SO THAT I can find new and interesting books to read
 
-```
+
+
+## Deployed Link
+
+[Google Books Search and Save](https://gb-search-n-save.herokuapp.com/)
+
+## Screenshots
+
+![searchbooks](https://user-images.githubusercontent.com/16748389/99137501-2f904300-25f9-11eb-8b59-745ea3c80e55.JPG)
+![savedbooks](https://user-images.githubusercontent.com/16748389/99137499-2ef7ac80-25f9-11eb-84d2-83c04f9e835c.JPG)
+
+
+## Technologies
+
+* [React.js](https://reactjs.org/)
+* [Create React App](https://github.com/facebook/create-react-app)
+* [Material UI](https://material-ui.com/)
+* [Node.js](https://nodejs.org/)
+* [Express](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* [Mongoose](https://mongoosejs.com/)
+* [Heroku](https://heroku.com)
+
+
+
+## Installation
+
+To install dependencies, run the following:
+
+`
+npm i
+`
+
+To run it locally, make sure that the MongoDB server is running on your machine.
+
+## Usage
+
+
+`
 npm start
-```
+`
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+## License
 
-## Deployment (Heroku)
+This repository is licensed under the [MIT license](./LICENSE).
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Questions
+
+Questions about this repository? Please contact me at [tiffanylbrand@outlook.com](mailto:tiffanylbrand@outlook.com). View more of my work in GitHub at [tiffany-brand](https://github.com/tiffany-brand) 

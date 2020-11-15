@@ -1,5 +1,4 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const path = require("path");
@@ -24,7 +23,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-
 // Define API routes here
 // Add routes, both API and view
 app.use(routes);
@@ -45,14 +43,16 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
 );
 
 
-
+// Socket.io
 io.on("connection", (socket) => {
   console.log("New client connected");
+
   io.sockets.emit('broadcast', 'Welcome to Google Books Search!');
 
   socket.on('saveMsg', (msg) => {
     io.sockets.emit('broadcast', msg);
   })
+
 });
 
 

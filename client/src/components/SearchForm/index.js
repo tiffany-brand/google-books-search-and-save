@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) =>
     })
 );
 
+// form to type search term
 export default function SearchForm(props) {
 
     const classes = useStyles();
@@ -39,7 +40,6 @@ export default function SearchForm(props) {
                     </Grid>
                     <Grid item xs={12} sm={10}>
                         <TextField className={classes.input} id="standard-search" label="search" type="search" name="search" variant="outlined" onChange={props.handleInputChange} />
-
                     </Grid>
                     <Grid item xs={12} sm={2}>
                         <Button className={classes.buttons} variant="contained" color="secondary" type="submit">Search</Button>

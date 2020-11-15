@@ -14,8 +14,6 @@ const useStyles = makeStyles((theme) =>
         },
         book: {
             padding: "40px 0 40px 0",
-
-
         },
         buttons: {
             margin: "10px"
@@ -23,12 +21,12 @@ const useStyles = makeStyles((theme) =>
     })
 );
 
+// renders a book with title, authors, description ,image, and a link to the Google Books page
 export default function Book(props) {
 
     const classes = useStyles();
 
     const { id, _id, title, authors, description, image, link } = props.bookInfo;
-    console.log(props.bookInfo);
 
     return (
         <Container className={classes.root} >
@@ -45,7 +43,6 @@ export default function Book(props) {
                     <img src={image} />
                 </Grid>
                 <Grid item xs={12} sm={9}>
-
                     <Typography variant="body2" color="textSecondary" component="p" paragraph>
                         {description}
                     </Typography>
@@ -53,7 +50,6 @@ export default function Book(props) {
                     {props.page === "search" ?
                         <Button className={classes.buttons} variant="contained" color="default" onClick={() => props.saveBook(props.bookInfo)}>Save</Button> :
                         <Button className={classes.buttons} variant="contained" color="secondary" onClick={() => props.deleteBook(_id)}>Delete</Button>}
-
                 </Grid>
             </Grid>
         </Container>

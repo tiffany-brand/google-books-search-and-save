@@ -1,3 +1,4 @@
+// parses needed book information from Google Books response
 export default function parseBooks(searchResults) {
     let parsedBook = {
         id: "",

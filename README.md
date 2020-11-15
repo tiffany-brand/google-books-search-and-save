@@ -14,7 +14,9 @@
 * [Questions](#questions)
 
 ## Description
-This application allows a user to search Google Books through the Google Books API. Search results are rendered in a list of books containing the title, author(s), a description, and book cover image. Users can view a book or save a book. The saved books page renders books that have been saved to the database. Saved books can be viewed or deleted from the list.
+This application allows a user to search for books through the Google Books API. There are two views, served by React Router - Search and Saved Books.  On the search page, users can type in a search term. Search results are rendered in a list of books containing the title, author(s), a description, and book cover image. Users can view a book, which takes the user to the Google Books information page. Users can also save a book - book informaton will be stored in the MongoDB database. The saved books page renders a list of books that have been saved. Saved books can be viewed or deleted from the database.
+
+The application also implements Socket.io messaging to alert users when a book has been saved. When one user saves a book, all current users receive a message in the Navbar with the book title and a message that the book has been saved.
 
 ### User Story
 
@@ -32,14 +34,16 @@ SO THAT I can find new and interesting books to read
 
 ## Screenshots
 
-![searchbooks](https://user-images.githubusercontent.com/16748389/99137501-2f904300-25f9-11eb-8b59-745ea3c80e55.JPG)
-![savedbooks](https://user-images.githubusercontent.com/16748389/99137499-2ef7ac80-25f9-11eb-84d2-83c04f9e835c.JPG)
+![search-books](https://user-images.githubusercontent.com/16748389/99197323-caa32d00-275f-11eb-86a1-968332ccf356.JPG)
+![saved-books](https://user-images.githubusercontent.com/16748389/99197324-cb3bc380-275f-11eb-9bbb-055a2c65c048.JPG)
 
 
 ## Technologies
 
 * [React.js](https://reactjs.org/)
 * [Create React App](https://github.com/facebook/create-react-app)
+* [React Router](https://reactrouter.com/)
+* [Socket.io](https://socket.io/)
 * [Material UI](https://material-ui.com/)
 * [Node.js](https://nodejs.org/)
 * [Express](https://expressjs.com/)

@@ -4,6 +4,8 @@ import SearchForm from '../components/SearchForm';
 import BookResults from '../components/BookResults';
 import API from "../utils/API";
 import parseBooks from "../utils/parseBooks";
+import Alert from "../components/Alert";
+import socket from '../utils/socket';
 
 export default function Search() {
 
@@ -30,7 +32,10 @@ export default function Search() {
     // Saved a book to the database
     function saveBook(book) {
         API.saveBook(book)
-            .then(res => console.log(res))
+            .then(res => {
+                socket.emit("saveMsg", `${res.data.title} has been saved!`);
+                console.log(res)
+            })
             .catch(err => console.log(err));
     }
 

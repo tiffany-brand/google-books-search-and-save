@@ -1,4 +1,4 @@
 import { io } from "socket.io-client";
-// const socket = io.connect(process.env.PORT || "http://localhost:3001");
-const socket = io.connect("https://gb-search-n-save.herokuapp.com/");
+// const socket = io.connect("http://localhost:3001"); // use this line when running locally
+const socket = io.connect("https://gb-search-n-save.herokuapp.com/"); // use this when deployed on Heroku
 export default socket;

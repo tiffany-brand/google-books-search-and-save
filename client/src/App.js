@@ -11,14 +11,16 @@ function App() {
       <div className="App">
         <Nav />
         <Hero />
-        <Switch>
-          <Route exact path="/">
-            <Search />
-          </Route>
-          <Route exact path="/saved">
-            <Saved />
-          </Route>
-        </Switch>
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <Search />
+            </Route>
+            <Route exact path="/saved">
+              <Saved />
+            </Route>
+          </Switch>
+        </main>
       </div>
     </BrowserRouter>
   );

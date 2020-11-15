@@ -31,7 +31,7 @@ export default function Alert() {
 
     useEffect(() => {
         console.log("attempting to connect");
-        console.log("ENV PORT" + process.env.PORT)
+        console.log("ENV PORT" + process.env.REACT_APP_PORT)
         socket.on("broadcast", data => {
             setResponse(data);
         });

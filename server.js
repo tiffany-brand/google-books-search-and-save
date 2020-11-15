@@ -1,12 +1,19 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  }
+});
 
 require('dotenv').config()
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -35,6 +42,20 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
 }
 );
 
-app.listen(PORT, () => {
+
+// Socket.io
+io.on("connection", (socket) => {
+  console.log("New client connected");
+
+  io.sockets.emit('broadcast', 'Welcome to Google Books Search!');
+
+  socket.on('saveMsg', (msg) => {
+    io.sockets.emit('broadcast', msg);
+  })
+
+});
+
+
+http.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

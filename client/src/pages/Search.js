@@ -4,33 +4,28 @@ import SearchForm from '../components/SearchForm';
 import BookResults from '../components/BookResults';
 import API from "../utils/API";
 import parseBooks from "../utils/parseBooks";
+import socket from '../utils/socket';
 
 export default function Search() {
 
     const [bookResults, setBookResults] = useState([]);
     const [searchTerm, setSearchTerm] = useState("Apple");
 
-    // Load all books and store them with setBooks
-    // useEffect(() => {
-    //     searchBooks()
-    // }, [])
-
-
     // Searches Google books and sets the response to bookResults
     function searchBooks() {
         API.searchGoogleBooks(searchTerm)
             .then(res => {
-
-                console.log(res.data.items)
                 setBookResults(parseBooks(res.data.items))
             })
             .catch(err => console.log(err));
     };
 
-    // Saved a book to the database
+    // Saves a book to the database
     function saveBook(book) {
         API.saveBook(book)
-            .then(res => console.log(res))
+            .then(res => {
+                socket.emit("saveMsg", `${res.data.title} has been saved!`);
+            })
             .catch(err => console.log(err));
     }
 
@@ -41,18 +36,16 @@ export default function Search() {
 
     const handleSubmit = event => {
         event.preventDefault();
-        searchBooks(searchTerm.split(" ").join("+"))
+        searchBooks(searchTerm.split(" ").join("+").trim())
     };
 
-
-
-
     return (
-
-        <Container>
-            <SearchForm handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
-            <BookResults bookResults={bookResults} saveBook={saveBook} page="search" />
-        </Container>
+        <section>
+            <Container>
+                <SearchForm handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
+                <BookResults bookResults={bookResults} saveBook={saveBook} page="search" />
+            </Container>
+        </section>
 
     )
 

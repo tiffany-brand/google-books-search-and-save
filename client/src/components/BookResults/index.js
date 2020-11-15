@@ -2,8 +2,8 @@ import React from "react";
 import Container from '@material-ui/core/Container';
 import Book from '../Book';
 
-
-export default function SearchResults(props) {
+// map over search results to create Book components and display books found
+export default function BookResults(props) {
 
     const { bookResults, saveBook, deleteBook, page } = props;
 

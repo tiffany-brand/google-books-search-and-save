@@ -4,7 +4,6 @@ import Hero from "./components/Hero";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "./App.css";
 
 function App() {
   return (

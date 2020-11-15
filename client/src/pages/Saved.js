@@ -2,20 +2,16 @@ import React, { useState, useEffect } from "react";
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid'
 import BookResults from '../components/BookResults';
 import API from "../utils/API";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
         root: {
-
             margin: "20px 0 20px 0"
         },
-
         title: {
             margin: "40px 20px 40px 20px",
-
         },
         buttons: {
             margin: "10px",
@@ -53,15 +49,14 @@ export default function Saved() {
     }
 
     return (
-
-        <Container className={classes.root}>
-
-            <Typography className={classes.title} gutterBottom variant="h5" component="h2">
-                Saved Books
-                    </Typography>
-
-            <BookResults bookResults={savedBooks} deleteBook={deleteBook} page="saved" />
-        </Container>
+        <section>
+            <Container className={classes.root}>
+                <Typography className={classes.title} gutterBottom variant="h5" component="h2">
+                    Saved Books
+                </Typography>
+                <BookResults bookResults={savedBooks} deleteBook={deleteBook} page="saved" />
+            </Container>
+        </section>
 
     )
 

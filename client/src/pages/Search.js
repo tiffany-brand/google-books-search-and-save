@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 import SearchForm from '../components/SearchForm';
 import BookResults from '../components/BookResults';
 import API from "../utils/API";
@@ -9,13 +10,14 @@ import socket from '../utils/socket';
 export default function Search() {
 
     const [bookResults, setBookResults] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("Apple");
+    const [searchTerm, setSearchTerm] = useState("");
 
     // Searches Google books and sets the response to bookResults
     function searchBooks() {
         API.searchGoogleBooks(searchTerm)
             .then(res => {
-                setBookResults(parseBooks(res.data.items))
+                res.data.totalItems > 0 ? setBookResults(parseBooks(res.data.items)) :
+                    setBookResults(["No Books Found."])
             })
             .catch(err => console.log(err));
     };
@@ -43,7 +45,10 @@ export default function Search() {
         <section>
             <Container>
                 <SearchForm handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
-                <BookResults bookResults={bookResults} saveBook={saveBook} page="search" />
+                {bookResults[0] === "No Books Found." ?
+                    <Typography>No Books Found.</Typography> :
+                    <BookResults bookResults={bookResults} saveBook={saveBook} page="search" />
+                }
             </Container>
         </section>
 

@@ -26,7 +26,7 @@ export default function Book(props) {
 
     const classes = useStyles();
 
-    const { id, _id, title, authors, description, image, link } = props.bookInfo;
+    const { _id, title, authors, description, image, link } = props.bookInfo;
 
     return (
         <Container className={classes.root} >
@@ -40,7 +40,7 @@ export default function Book(props) {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={3}>
-                    <img src={image} />
+                    <img src={image} alt={title} />
                 </Grid>
                 <Grid item xs={12} sm={9}>
                     <Typography variant="body2" color="textSecondary" component="p" paragraph>

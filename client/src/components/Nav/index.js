@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) =>
         },
         title: {
             flexGrow: 1,
+            color: "#fff",
             display: "none",
             [theme.breakpoints.up("sm")]: {
                 display: "block"
@@ -22,6 +23,7 @@ const useStyles = makeStyles((theme) =>
         },
 
         links: {
+            textDecoration: "none",
             color: "#fff"
         },
         offset: theme.mixins.toolbar,
@@ -38,9 +40,9 @@ export default function Header() {
         <header className={classes.root}>
             <AppBar position="fixed">
                 <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
+                    <Link to='/' className={classes.links}> <Typography variant="h6" className={classes.title}>
                         Google Books
-                    </Typography>
+                    </Typography></Link>
                     <Alert />
                     <Link to='/'><Button className={classes.links}>Search</Button></Link>
                     <Link to='/saved'><Button className={classes.links}>Saved Books</Button></Link>
@@ -48,7 +50,5 @@ export default function Header() {
             </AppBar>
             <div className={classes.offset} />
         </header>
-
     )
-
 }
